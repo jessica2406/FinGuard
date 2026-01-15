@@ -1,0 +1,11 @@
+streamlit
+langchain
+langchain-community
+langchain-ollama
+langchain-huggingface
+langchain-neo4j
+chromadb
+neo4j
+pandas
+pypdf
+sentence-transformers

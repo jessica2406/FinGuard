@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+.venv/
+*.pyc
+
+# Data & Databases (Too large for GitHub)
+vector_db/
+data/PS_20174392719_1491204439457_log.csv
+.ipynb_checkpoints/
+
+# System
+.DS_Store
+.env
