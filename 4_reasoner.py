@@ -5,6 +5,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_neo4j import Neo4jGraph, GraphCypherQAChain
 from langchain_chroma import Chroma 
 from langchain_openai import ChatOpenAI
+import streamlit as st
 # 1. SETUP
 os.environ["LANGCHAIN_TRACING_V2"] = "false"
 
