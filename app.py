@@ -12,11 +12,11 @@ st.title("🏦 FinGuard: Neuro-Symbolic AML Compliance")
 @st.cache_resource
 def init_connections():
     graph = Neo4jGraph(
-        url="bolt://localhost:7687", 
-        username="neo4j", 
-        password="password123",
-        enhanced_schema=False 
-    )
+    url=st.secrets["NEO4J_URI"],
+    username=st.secrets["NEO4J_USERNAME"],
+    password=st.secrets["NEO4J_PASSWORD"],
+    enhanced_schema=False
+)
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     vector_db = Chroma(persist_directory="vector_db", embedding_function=embeddings)
     llm = ChatOllama(model="llama3.2", temperature=0)

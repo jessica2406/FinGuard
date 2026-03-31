@@ -4,7 +4,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_neo4j import Neo4jGraph, GraphCypherQAChain
 from langchain_chroma import Chroma 
-
+from langchain_openai import ChatOpenAI
 # 1. SETUP
 os.environ["LANGCHAIN_TRACING_V2"] = "false"
 
@@ -20,7 +20,12 @@ embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 vector_db = Chroma(persist_directory="vector_db", embedding_function=embeddings)
 
 # 4. LLM
-llm = ChatOllama(model="llama3.2", temperature=0)
+
+llm = ChatOpenAI(
+    model="gpt-4o-mini",
+    temperature=0,
+    api_key=st.secrets["OPENAI_API_KEY"]
+)
 
 # 5. THE REASONER FUNCTION
 def run_audit(account_id):
